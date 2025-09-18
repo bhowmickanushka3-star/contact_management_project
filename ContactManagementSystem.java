@@ -12,7 +12,6 @@ class Contact {
         this.email = email;
     }
 
-    // Getters and Setters
     public String getName() {
         return name;
     }
@@ -47,7 +46,6 @@ public class ContactManagementSystem {
     private static ArrayList<Contact> contacts = new ArrayList<>();
     private static Scanner sc = new Scanner(System.in);
 
-    // Add a new contact
     public static void addContact() {
         System.out.print("Enter Name: ");
         String name = sc.nextLine();
@@ -56,7 +54,6 @@ public class ContactManagementSystem {
         System.out.print("Enter Email: ");
         String email = sc.nextLine();
 
-        // Check for duplicates
         for (Contact c : contacts) {
             if (c.getPhone().equals(phone) || c.getEmail().equalsIgnoreCase(email)) {
                 System.out.println("Duplicate contact! Cannot add.");
@@ -68,7 +65,6 @@ public class ContactManagementSystem {
         System.out.println("Contact added successfully!");
     }
 
-    // View all contacts
     public static void viewContacts() {
         if (contacts.isEmpty()) {
             System.out.println("No contacts available.");
@@ -80,14 +76,13 @@ public class ContactManagementSystem {
         }
     }
 
-    // Update a contact
     public static void updateContact() {
         viewContacts();
         if (contacts.isEmpty()) return;
 
         System.out.print("Enter contact number to update: ");
         int index = sc.nextInt();
-        sc.nextLine(); // consume newline
+        sc.nextLine(); 
 
         if (index < 1 || index > contacts.size()) {
             System.out.println("Invalid contact number!");
@@ -111,7 +106,6 @@ public class ContactManagementSystem {
         System.out.println("Contact updated successfully!");
     }
 
-    // Delete a contact
     public static void deleteContact() {
         viewContacts();
         if (contacts.isEmpty()) return;
@@ -129,7 +123,7 @@ public class ContactManagementSystem {
         System.out.println("Contact deleted successfully!");
     }
 
-    // Search contacts
+    
     public static void searchContact() {
         System.out.print("Enter keyword (name, phone, or email): ");
         String keyword = sc.nextLine().toLowerCase();
@@ -149,7 +143,6 @@ public class ContactManagementSystem {
         }
     }
 
-    // Menu
     public static void displayMenu() {
         System.out.println("\n--- Contact Management System ---");
         System.out.println("1. Add Contact");
@@ -186,3 +179,4 @@ public class ContactManagementSystem {
         }
     }
 }
+
